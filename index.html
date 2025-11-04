@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Configuration Variables -->
+    <script>
+        const META = {
+            title: "Astra Cloud Solutions | AWS Migration & Cloud Architecture",
+            description: "AWS cloud migration, architecture, and infrastructure auditing. We help businesses worldwide optimize costs, security, and performance through comprehensive cloud assessments.",
+            url: "https://astracloudsolutions.com",
+            image: "/assets/og-image.png",
+            keywords: "AWS migration, cloud architecture, DevOps, cloud audit, cost optimization, infrastructure consulting"
+        };
+    </script>
+
+    <!-- Primary Meta Tags -->
+    <title id="meta-title"><!-- Filled by JavaScript --></title>
+    <meta name="description" id="meta-description">
+    <meta name="keywords" id="meta-keywords">
+    <meta name="author" content="Astra Cloud Solutions">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" id="meta-url">
+    <meta property="og:title" id="meta-og-title">
+    <meta property="og:description" id="meta-og-description">
+    <meta property="og:image" id="meta-og-image">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" id="meta-twitter-url">
+    <meta property="twitter:title" id="meta-twitter-title">
+    <meta property="twitter:description" id="meta-twitter-description">
+    <meta property="twitter:image" id="meta-twitter-image">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Business Configuration -->
+    <script>
+        const CONFIG = {
+            // Contact Information
+            contactEmail: "contact@astracloudsolutions.com",
+            
+            // Scheduling Links
+            calendlyUrl: "https://calendly.com/hajar-ikhlef-astracloudsolutions/30min",
+            
+            // Business Information
+            businessName: "Astra Cloud Solutions",
+            tagline: "Your Cloud Journey, Simplified",
+
+            // Prefilled email content
+            emailSubject: "AWS Cloud Audit Inquiry",
+            emailBody: "Hello,\n\nI am interested in learning more about your AWS Cloud Audit services. Please provide more information.\n\nBest regards,\n[Your Name]\n[Your Company]",
+            
+            // Automatic
+            currentYear: new Date().getFullYear()
+        };
+    </script>
+
+    <!-- Apply Meta Tags -->
+    <script>
+        // Apply meta tags
+        document.getElementById('meta-title').textContent = META.title;
+        document.getElementById('meta-description').content = META.description;
+        document.getElementById('meta-keywords').content = META.keywords;
+        document.getElementById('meta-url').content = META.url;
+        document.getElementById('meta-og-title').content = META.title;
+        document.getElementById('meta-og-description').content = META.description;
+        document.getElementById('meta-og-image').content = META.image;
+        document.getElementById('meta-twitter-url').content = META.url;
+        document.getElementById('meta-twitter-title').content = META.title;
+        document.getElementById('meta-twitter-description').content = META.description;
+        document.getElementById('meta-twitter-image').content = META.image;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo" data-business-name><!-- Filled by JavaScript --></div>
+        </header>
+
+        <main class="main-content">
+            <section class="hero">
+                <h1 class="hero-title" data-tagline><!-- Filled by JavaScript --></h1>
+                <p class="hero-description">
+                    AWS migration, cloud architecture, and DevOps consulting for businesses worldwide. 
+                    We help transform complex infrastructure challenges into scalable, cost-effective solutions—starting with a clear assessment of your current environment.
+                </p>
+                
+                <div class="services-preview">
+                    <div class="service-item">
+                        <div class="service-icon">🔍</div>
+                        <h3>Cloud Infrastructure Audit</h3>
+                        <p>Comprehensive assessment of your AWS environment identifying security risks, cost savings, and performance improvements</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🚀</div>
+                        <h3>Cloud Migration</h3>
+                        <p>Seamless transition to AWS with proven methodologies and minimal downtime for businesses of all sizes</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🏗️</div>
+                        <h3>Architecture Design</h3>
+                        <p>Future-proof cloud infrastructure built on AWS best practices for scalability, security, and reliability</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">⚡</div>
+                        <h3>DevOps & Automation</h3>
+                        <p>Streamline deployments with CI/CD pipelines, infrastructure as code, and automated monitoring systems</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <h2>Start with a Professional Cloud Assessment</h2>
+                <p>Our comprehensive AWS audit delivers a detailed action plan with prioritized recommendations for security, performance, and cost optimization</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary" id="emailCta" data-contact-email><!-- Filled by JavaScript --></a>
+                    <a href="#" class="btn btn-secondary" data-calendly-link><!-- Filled by JavaScript --></a>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p>&copy; <span id="currentYear"></span> <span data-business-name><!-- Filled by JavaScript --></span>. All rights reserved.</p>
+            <p data-contact-email-text><!-- Filled by JavaScript --></p>
+        </footer>
+    </div>
+
+    <!-- Apply Business Configuration -->
+    <script>
+        // Apply configuration to elements
+        document.getElementById('currentYear').textContent = CONFIG.currentYear;
+        
+        // Update business name
+        document.querySelectorAll('[data-business-name]').forEach(el => {
+            el.textContent = CONFIG.businessName;
+        });
+        
+        // Update tagline
+        document.querySelectorAll('[data-tagline]').forEach(el => {
+            el.textContent = CONFIG.tagline;
+        });
+        
+        // Update Calendly links
+        document.querySelectorAll('[data-calendly-link]').forEach(link => {
+            link.href = CONFIG.calendlyUrl;
+            link.textContent = 'Schedule Discovery Call';
+        });
+        
+        // Update contact email links with prefilled content
+        document.querySelectorAll('[data-contact-email]').forEach(link => {
+            const subject = encodeURIComponent(CONFIG.emailSubject);
+            const body = encodeURIComponent(CONFIG.emailBody);
+            link.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
+            link.textContent = 'Get Your Cloud Audit';
+        });
+        
+        // Update contact email text
+        document.querySelectorAll('[data-contact-email-text]').forEach(el => {
+            el.textContent = CONFIG.contactEmail;
+        });
+    </script>
+</body>
+</html>
