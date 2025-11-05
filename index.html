@@ -46,22 +46,79 @@
 
     <!-- Business Configuration -->
     <script>
-        const CONFIG = {
-            // Contact Information
-            contactEmail: "contact@astracloudsolutions.com",
-            
-            // Scheduling Links
-            calendlyUrl: "https://calendly.com/hajar-ikhlef-astracloudsolutions/30min",
-            
-            // Business Information
-            businessName: "Astra Cloud Solutions",
-            tagline: "Your Cloud Journey, Simplified",
+        const TRANSLATIONS = {
+            en: {
+                businessName: "Astra Cloud Solutions",
+                tagline: "Your Cloud Journey, Simplified",
+                description: "Leading experts in AWS migration, cloud architecture, and DevOps consulting for global enterprises. Our strategic approach transforms complex infrastructure challenges into powerful business advantages, delivering scalable and optimized solutions. Every engagement begins with a thorough assessment of your environment.",
+                calendly: "https://calendly.com/hajar-ikhlef-astracloudsolutions/30min",
+                email: {
+                    subject: "AWS Cloud Audit Inquiry",
+                    body: "Hello,\n\nI am interested in learning more about your AWS Cloud Audit services. Please provide more information.\n\nBest regards,\n[Your Name]\n[Your Company]"
+                },
+                services: {
+                    audit: {
+                        title: "Cloud Infrastructure Audit",
+                        description: "Comprehensive assessment of your AWS environment identifying security risks, cost savings, and performance improvements"
+                    },
+                    migration: {
+                        title: "Cloud Migration",
+                        description: "Seamless transition to AWS with proven methodologies and minimal downtime for businesses of all sizes"
+                    },
+                    architecture: {
+                        title: "Architecture Design",
+                        description: "Future-proof cloud infrastructure built on AWS best practices for scalability, security, and reliability"
+                    },
+                    devops: {
+                        title: "DevOps & Automation",
+                        description: "Streamline deployments with CI/CD pipelines, infrastructure as code, and automated monitoring systems"
+                    }
+                },
+                cta: {
+                    title: "Start with a Professional Cloud Assessment",
+                    description: "Our comprehensive AWS audit delivers a detailed action plan with prioritized recommendations for security, performance, and cost optimization",
+                    auditButton: "Get Your Cloud Audit",
+                    scheduleButton: "Schedule Discovery Call"
+                }
+            },
+            fr: {
+                businessName: "Astra Cloud Solutions",
+                tagline: "L'Excellence Cloud à Votre Service",
+                description: "Experts de premier plan en migration AWS, architecture cloud et conseil DevOps pour les entreprises mondiales. Notre approche stratégique transforme les défis d'infrastructure complexes en avantages concurrentiels, délivrant des solutions évolutives et optimisées. Chaque collaboration débute par une analyse approfondie de votre environnement.",
+                calendly: "https://calendly.com/hajar-ikhlef-astracloudsolutions/discovery-call-clone",
+                email: {
+                    subject: "Demande d'Audit Cloud AWS",
+                    body: "Bonjour,\n\nJe souhaiterais obtenir plus d'informations concernant vos services d'audit d'infrastructure AWS.\n\nJe vous remercie en avance pour votre réponse.\n\nCordialement,\n\n[Votre Nom]\n[Votre Entreprise]"
+                },
+                services: {
+                    audit: {
+                        title: "Audit d'Infrastructure Cloud",
+                        description: "Analyse approfondie de votre environnement AWS pour identifier les vulnérabilités, optimiser les coûts et maximiser les performances de votre infrastructure"
+                    },
+                    migration: {
+                        title: "Migration vers le Cloud",
+                        description: "Migration maîtrisée vers AWS avec une méthodologie éprouvée garantissant une continuité de service optimale, quelle que soit la taille de votre entreprise"
+                    },
+                    architecture: {
+                        title: "Architecture Cloud",
+                        description: "Conception d'infrastructures cloud nouvelle génération suivant les meilleures pratiques AWS, garantissant évolutivité, sécurité et haute disponibilité"
+                    },
+                    devops: {
+                        title: "Solutions DevOps",
+                        description: "Automatisation complète de vos processus avec pipelines CI/CD, Infrastructure as Code (IaC) et monitoring avancé pour une excellence opérationnelle"
+                    }
+                },
+                cta: {
+                    title: "Démarrez avec un Audit Cloud Professionnel",
+                    description: "Notre audit AWS détaillé vous fournit une feuille de route stratégique avec des recommandations concrètes pour optimiser la sécurité, la performance et les coûts",
+                    auditButton: "Demander un Audit Cloud",
+                    scheduleButton: "Réserver une Consultation"
+                }
+            }
+        };
 
-            // Prefilled email content
-            emailSubject: "AWS Cloud Audit Inquiry",
-            emailBody: "Hello,\n\nI am interested in learning more about your AWS Cloud Audit services. Please provide more information.\n\nBest regards,\n[Your Name]\n[Your Company]",
-            
-            // Automatic
+        const CONFIG = {
+            contactEmail: "contact@astracloudsolutions.com",
             currentYear: new Date().getFullYear()
         };
     </script>
@@ -83,46 +140,66 @@
     </script>
 </head>
 <body>
+    <!-- Language Selection Modal -->
+    <div id="languageModal" class="modal">
+        <div class="modal-content">
+            <h2>Select Language / Choisir la Langue</h2>
+            <div class="language-options">
+                <button onclick="setLanguage('en')" class="language-btn" data-lang="en" aria-label="English">
+                    <span class="flag-placeholder" data-lang="en" aria-hidden="true"></span>
+                    <span class="language-label">English</span>
+                </button>
+                <button onclick="setLanguage('fr')" class="language-btn" data-lang="fr" aria-label="Français">
+                    <span class="flag-placeholder" data-lang="fr" aria-hidden="true"></span>
+                    <span class="language-label">Français</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <header class="header">
             <div class="logo" data-business-name><!-- Filled by JavaScript --></div>
+            <button id="languageSelector" class="language-selector" aria-haspopup="dialog" aria-controls="languageModal">
+                <span id="currentLanguage"><span class="flag-placeholder" data-lang="en" aria-hidden="true"></span>
+                    <span class="language-abbr">EN</span></span>
+            </button>
         </header>
 
         <main class="main-content">
             <section class="hero">
                 <h1 class="hero-title" data-tagline><!-- Filled by JavaScript --></h1>
-                <p class="hero-description">
-                    AWS migration, cloud architecture, and DevOps consulting for businesses worldwide. 
-                    We help transform complex infrastructure challenges into scalable, cost-effective solutions—starting with a clear assessment of your current environment.
+                <p class="hero-description" data-translate="description">
+                    <!-- Filled by JavaScript -->
                 </p>
                 
                 <div class="services-preview">
                     <div class="service-item">
                         <div class="service-icon">🔍</div>
-                        <h3>Cloud Infrastructure Audit</h3>
-                        <p>Comprehensive assessment of your AWS environment identifying security risks, cost savings, and performance improvements</p>
+                        <h3 data-translate="services.audit.title"><!-- Filled by JavaScript --></h3>
+                        <p data-translate="services.audit.description"><!-- Filled by JavaScript --></p>
                     </div>
                     <div class="service-item">
                         <div class="service-icon">🚀</div>
-                        <h3>Cloud Migration</h3>
-                        <p>Seamless transition to AWS with proven methodologies and minimal downtime for businesses of all sizes</p>
+                        <h3 data-translate="services.migration.title"><!-- Filled by JavaScript --></h3>
+                        <p data-translate="services.migration.description"><!-- Filled by JavaScript --></p>
                     </div>
                     <div class="service-item">
                         <div class="service-icon">🏗️</div>
-                        <h3>Architecture Design</h3>
-                        <p>Future-proof cloud infrastructure built on AWS best practices for scalability, security, and reliability</p>
+                        <h3 data-translate="services.architecture.title"><!-- Filled by JavaScript --></h3>
+                        <p data-translate="services.architecture.description"><!-- Filled by JavaScript --></p>
                     </div>
                     <div class="service-item">
                         <div class="service-icon">⚡</div>
-                        <h3>DevOps & Automation</h3>
-                        <p>Streamline deployments with CI/CD pipelines, infrastructure as code, and automated monitoring systems</p>
+                        <h3 data-translate="services.devops.title"><!-- Filled by JavaScript --></h3>
+                        <p data-translate="services.devops.description"><!-- Filled by JavaScript --></p>
                     </div>
                 </div>
             </section>
 
             <section class="cta-section">
-                <h2>Start with a Professional Cloud Assessment</h2>
-                <p>Our comprehensive AWS audit delivers a detailed action plan with prioritized recommendations for security, performance, and cost optimization</p>
+                <h2 data-translate="cta.title"><!-- Filled by JavaScript --></h2>
+                <p data-translate="cta.description"><!-- Filled by JavaScript --></p>
                 <div class="cta-buttons">
                     <a href="#" class="btn btn-primary" id="emailCta" data-contact-email><!-- Filled by JavaScript --></a>
                     <a href="#" class="btn btn-secondary" data-calendly-link><!-- Filled by JavaScript --></a>
@@ -139,36 +216,107 @@
 
     <!-- Apply Business Configuration -->
     <script>
-        // Apply configuration to elements
-        document.getElementById('currentYear').textContent = CONFIG.currentYear;
-        
-        // Update business name
-        document.querySelectorAll('[data-business-name]').forEach(el => {
-            el.textContent = CONFIG.businessName;
+        // Language handling
+        let currentLanguage = localStorage.getItem('language') || 'en';
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('language', lang);
+            updateContent();
+            updateLanguageButton();
+            closeModal();
+        }
+
+        const FLAGS = {
+            en: '<svg viewBox="0 0 60 30" class="flag-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">\n                <rect width="60" height="30" fill="#012169"/>\n                <!-- White diagonals -->\n                <polygon points="0,0 10,0 60,20 60,30 50,30 0,10" fill="#fff"/>\n                <polygon points="60,0 60,10 10,30 0,30 0,20 50,0" fill="#fff"/>\n                <!-- Red diagonals -->\n                <polygon points="0,0 6,0 60,24 60,30 54,30 0,6" fill="#C8102E"/>\n                <polygon points="60,0 60,6 6,30 0,30 0,24 54,0" fill="#C8102E"/>\n                <!-- Central white cross -->\n                <rect x="24" width="12" height="30" fill="#fff"/>\n                <rect y="9" width="60" height="12" fill="#fff"/>\n                <!-- Central red cross -->\n                <rect x="26" width="8" height="30" fill="#C8102E"/>\n                <rect y="11" width="60" height="8" fill="#C8102E"/>\n            </svg>',
+            fr: '<svg viewBox="0 0 3 2" class="flag-svg" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" x="0" fill="#0055A4"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#EF4135"/></svg>'
+        };
+
+        function updateLanguageButton() {
+            const langButton = document.getElementById('currentLanguage');
+            const abbr = currentLanguage === 'en' ? 'EN' : 'FR';
+            langButton.innerHTML = FLAGS[currentLanguage] + '<span class="language-abbr">' + abbr + '</span>';
+        }
+
+        // Populate any flag placeholders (used in modal buttons) with the corresponding SVG
+        function populateFlagPlaceholders() {
+            document.querySelectorAll('.flag-placeholder').forEach(el => {
+                const lang = el.getAttribute('data-lang');
+                if (lang && FLAGS[lang]) el.innerHTML = FLAGS[lang];
+            });
+        }
+
+        function getTranslatedValue(key) {
+            return key.split('.').reduce((obj, i) => obj[i], TRANSLATIONS[currentLanguage]);
+        }
+
+        function updateContent() {
+            // Update elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                el.textContent = getTranslatedValue(key);
+            });
+
+            // Update business name
+            document.querySelectorAll('[data-business-name]').forEach(el => {
+                el.textContent = getTranslatedValue('businessName');
+            });
+            
+            // Update tagline
+            document.querySelectorAll('[data-tagline]').forEach(el => {
+                el.textContent = getTranslatedValue('tagline');
+            });
+            
+            // Update Calendly links
+            document.querySelectorAll('[data-calendly-link]').forEach(link => {
+                link.href = getTranslatedValue('calendly');
+                link.textContent = getTranslatedValue('cta.scheduleButton');
+            });
+            
+            // Update contact email links
+            document.querySelectorAll('[data-contact-email]').forEach(link => {
+                const emailData = getTranslatedValue('email');
+                const subject = encodeURIComponent(emailData.subject);
+                const body = encodeURIComponent(emailData.body);
+                link.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
+                link.textContent = getTranslatedValue('cta.auditButton');
+            });
+            
+            // Update contact email text
+            document.querySelectorAll('[data-contact-email-text]').forEach(el => {
+                el.textContent = CONFIG.contactEmail;
+            });
+
+            // Update year
+            document.getElementById('currentYear').textContent = CONFIG.currentYear;
+        }
+
+        // Modal handling
+        const modal = document.getElementById('languageModal');
+        const languageSelector = document.getElementById('languageSelector');
+
+        function openModal() {
+            modal.classList.add('show');
+        }
+
+        function closeModal() {
+            modal.classList.remove('show');
+        }
+
+        // Event listeners
+        languageSelector.addEventListener('click', openModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
         });
-        
-        // Update tagline
-        document.querySelectorAll('[data-tagline]').forEach(el => {
-            el.textContent = CONFIG.tagline;
-        });
-        
-        // Update Calendly links
-        document.querySelectorAll('[data-calendly-link]').forEach(link => {
-            link.href = CONFIG.calendlyUrl;
-            link.textContent = 'Schedule Discovery Call';
-        });
-        
-        // Update contact email links with prefilled content
-        document.querySelectorAll('[data-contact-email]').forEach(link => {
-            const subject = encodeURIComponent(CONFIG.emailSubject);
-            const body = encodeURIComponent(CONFIG.emailBody);
-            link.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
-            link.textContent = 'Get Your Cloud Audit';
-        });
-        
-        // Update contact email text
-        document.querySelectorAll('[data-contact-email-text]').forEach(el => {
-            el.textContent = CONFIG.contactEmail;
+
+        // Initialize content
+        document.addEventListener('DOMContentLoaded', () => {
+            // populate static flag placeholders (modal and header)
+            populateFlagPlaceholders();
+            updateContent();
+            updateLanguageButton();
         });
     </script>
 </body>
