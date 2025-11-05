@@ -119,6 +119,25 @@ body {
     color: var(--WHITE);
 }
 
+/* Flag icon styles */
+.flag-svg {
+    width: 1.15rem;
+    height: 0.8rem;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.flag-icon {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+
+.language-label, .language-abbr {
+    margin-left: 0.25rem;
+    font-weight: 700;
+}
+
 .logo {
     font-family: 'Montserrat', 'Trebuchet MS', sans-serif;
     font-size: 1.5rem;
