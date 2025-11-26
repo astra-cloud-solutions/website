@@ -296,6 +296,24 @@ body {
     transform: translateY(-2px);
 }
 
+/* CTA Sample Link */
+.cta-sample-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--WHITE);
+    opacity: 0.95;
+}
+
+.cta-sample-link a {
+    color: var(--WHITE);
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+.cta-sample-link a:hover {
+    opacity: 0.8;
+}
+
 /* Footer */
 .footer {
     text-align: center;
@@ -347,6 +365,10 @@ body {
         width: 100%;
         max-width: 300px;
         text-align: center;
+    }
+    
+    .cta-sample-link {
+        font-size: 0.85rem;
     }
 }
 
